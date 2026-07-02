@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You</title>
+
+<style>
+body {
+  margin: 0;
+  background: #0a0a0a;
+  color: #eaeaea;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* halaman */
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.page.active {
+  display: flex;
+  opacity: 1;
+}
+
+/* teks */
+h1 {
+  font-size: 42px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #aaa;
+  max-width: 320px;
+  line-height: 1.5;
+}
+
+/* tombol */
+button {
+  margin-top: 25px;
+  padding: 12px 28px;
+  background: transparent;
+  border: 1px solid #888;
+  color: #eaeaea;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #eaeaea;
+  color: #000;
+}
+
+/* foto */
+img {
+  width: 220px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  filter: grayscale(100%);
+  transition: 0.4s;
+}
+
+img:hover {
+  filter: grayscale(0%);
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page active">
+  <h1>hey.</h1>
+  <button onclick="nextPage(2)">click</button>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="page">
+  <h1>it's your day</h1>
+  <p>bukan hari biasa, karena kamu ada di dunia ini.</p>
+  <button onclick="nextPage(3)">next</button>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="page">
+  <h1>happy birthday</h1>
+  <p>semoga hal baik selalu nyamperin kamu.</p>
+  <button onclick="nextPage(4)">one more</button>
+</div>
+
+<!-- PAGE 4 -->
+<div id="page4" class="page">
+  <!-- GANTI FOTO DI SINI -->
+  <img src="hbd.png" alt="foto">
+  <h1>you matter</h1>
+  <p>serius. lebih dari yang kamu kira.</p>
+</div>
+
+<script>
+function nextPage(n) {
+  var pages = document.querySelectorAll('.page');
+  for (var i = 0; i < pages.length; i++) {
+    pages[i].classList.remove('active');
+  }
+  document.getElementById('page' + n).classList.add('active');
+}
+</script>
+
+</body>
+</html>
